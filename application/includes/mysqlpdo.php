@@ -24,7 +24,7 @@ class MysqlPdo
 	public function connect()
 	{
 		try {
-			$this->_dbh = new PDO('mysql:host='._DBHOST_.';dbname='._DATABASE_, _DBUSER_, _DBPWD_);
+			$this->_dbh = new PDO('mysql:host='._DBHOST_.';dbname='._DATABASE_.';charset=utf8', _DBUSER_, _DBPWD_);
 			return $this->_dbh;
 		} catch (PDOException $e) {
 			print 'Error!: ' . $e->getMessage() . '<br/>';
