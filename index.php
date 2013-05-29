@@ -5,6 +5,7 @@
  * date: 2013年 05月 01日 星期三 18:46:49 PDT
  * 版权：Copyright@2013-2015 breakfate.com ALL Rights Reserved
  */
+header("content-type:text/html;charset=utf-8");
 error_reporting(E_ALL);
 require (dirname ( __FILE__ ) . '/application/includes/init.php');
 require_once(_SITE_ROOT_.'/config/config.php');
