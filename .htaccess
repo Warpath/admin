@@ -1,0 +1,16 @@
+RewriteEngine on
+RewriteBase /var/www/html/breakfate
+
+RewriteRule ^user$ /index.php?m=user&a=index
+RewriteRule ^user/del/(\d*)$ /index.php?m=user&a=del&id=$1
+RewriteRule ^tags$ /index.php?m=tags&a=index
+RewriteRule ^tags/del/(\d*)$ /index.php?m=tags&a=del&id=$1
+RewriteRule ^tags/add$ /index.php?m=tags&a=add
+RewriteRule ^tags/adding$ /index.php?m=tags&a=adding
+RewriteRule ^tags/img$ /index.php?m=tags&a=imgupload
+RewriteRule ^vote$ /index.php?m=vote&a=index
+RewriteRule ^vote/add$ /index.php?m=vote&a=add
+RewriteRule ^vote/adding$ /index.php?m=vote&a=adding
+
+RewriteRule ^signin$ /index.php?m=account&a=login
+RewriteRule ^logining$ /index.php?m=account&a=loginHandler

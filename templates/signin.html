@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+    <title>登录</title>
+	<meta name="robots" content="index,follow" />
+	<meta name="Keywords" content="习惯，感恩，个人成长"/>
+	<meta name="description" content="一个关注个人成长的平台，帮助你建立习惯，培养感恩，关注成长中的点点滴滴。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="<{$siteurl}>/ui/css/bootstrap.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+
+	  <!-- header -->
+	  <div class="navbar navbar-inverse navbar-static-top">
+		  <div class="navbar-inner">
+			  <div class="container">
+				  <a class="pull-left" href="http://www.breakfate.com"><img src="http://www.breakfate.com/ui/img/logo.png" style="height:40px;width:60px;"></a>
+				  <span class="nav-collapse collapse">
+					  <ul class="nav">
+						  <li class><a href="http://www.breakfate.com/habit">习惯</a></li>
+						  <li class><a href="http://www.breakfate.com/thanksgiving">感恩</a></li>
+						  <li class><a href="http://www.breakfate.com/mature">成长</a></li>
+					  </ul>
+					  <form class="navbar-search">
+						<input type="text" class="search-query" placeholder="Search">
+						<div></div>
+					  </form>
+					  <div class="pull-right">
+						  <{if $userinfo}>
+						  <a href="http://www.breakfate.com/home"><img src="<{$siteurl}>/ui/img/avatar.jpg" class="img-polaroid">Warpath</a>
+						  <a href="http://www.breakfate.com/set"><i class="icon-edit"></i></a>
+						  <a href="http://www.breakfate.com/logout"><i class="icon-share"></i></a>
+						  <{else}>
+						  <a href="http://www.breakfate.com/signup"><button class="btn btn-success ">注册</button></a>
+						  <{/if}>
+					  </div>
+				  </span>
+			  </div>
+		  </div>
+	  </div>
+	  <!-- header -->
+	  <!--container-->
+	  <div class="container">
+		  <br>
+		  <br>
+		  <br>
+		  <div class="thanksgiving_height">
+		  <form class="form-signin" method="post" action="logining">
+			  <h2 class="form-signin-heading">登录</h2>
+			  <{if $error}><p class="text-error"><{$error}></p><{/if}>
+			  <label>
+			  用户名
+			  </label>
+		      <input type="text" class="input-block-level" placeholder="用户名" name="name">
+			  <label>
+				  密码
+			  </label>
+			  <input type="password" class="input-block-level" placeholder="密码" name="password">
+			  <button class="btn btn-success btn-large btn-primary" type="submit">登录</button>
+			  <a class="pull-right" style="margin-top:15px;"  href="<{$siteurl}>/forgetpassword">忘记密码</a>
+		  </form>
+		  </div>
+		<hr>
+	  </div>
+	  <!--container-->
+	  <{include file="default/footer.html"}>
+
+    <script src="<{$siteurl}>/ui/js/jquery.js"></script>
+    <script src="<{$siteurl}>/ui/js/bootstrap.min.js"></script>
+	<script src="<{$siteurl}>/ui/js/main.js"></script>
+  </body>
+</html>

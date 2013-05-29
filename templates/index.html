@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="ui/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="ui/css/bootstrap.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+	  <!--container-->
+	  <div class="container-fluid">
+		  <div class="row-fluid">
+			  <{include file="default/sidebar.html"}>
+			  <div class="span9">
+				  <table class="table">
+					  <thead>
+						  <tr>
+							<th>用户名</th>
+							<th>邮箱</th>
+							<th>查看</th>
+							<th>删除</th>
+						  </tr>
+					  </thead>
+					  <tbody>
+						  <{foreach item=item from=$user}>
+						  <tr>
+						  <td><{$item.UserName}></td>
+						  <td><{$item.Email}></td>
+						  <td><a href="<{$siteurl}>/user/detail/<{$item.Id}>">查看</a></td>
+						  <td><a href="<{$siteurl}>/user/del/<{$item.Id}>">删除</a></td>
+						  </tr>
+						  <{/foreach}>
+					  </tbody>
+				  </table>
+			  </div>
+		  </div>
+		<hr>
+	  </div>
+	  <!--container-->
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="ui/js/bootstrap.min.js"></script>
+  </body>
+</html>

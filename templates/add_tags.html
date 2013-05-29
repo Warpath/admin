@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+	<link href="<{$siteurl}>/ui/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="<{$siteurl}>/ui/css/bootstrap.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+	  <!--container-->
+	  <div class="container-fluid">
+		  <div class="row-fluid">
+			  <{include file="default/sidebar.html"}>
+			  <div class="span9">
+				  <form method="post" action="/tags/adding">
+					  <fieldset>
+						<legend>添加标签</legend>
+						<label>名称</label>
+						<input type="text" name="name">
+						<label>说明</label>
+						<textarea name="des"></textarea>
+						<label>图片</label>
+						<input type="file" name="fileToUpload" id="fileToUpload">
+							<img name="upimg" src="" style="width:80px;height:80px;" class="hide">
+							<input name="upimg1" type="hidden">
+						<button class="btn" onclick="return ajaxFileUpload();">上传</button>
+						<br>
+						<button type="button" id="submit" class="btn btn-success" >添加</button>
+					  </fieldset>
+				  </form>
+			  </div>
+		  </div>
+		<hr>
+	  </div>
+	  <!--container-->
+
+    <script src="<{$siteurl}>/ui/js/jquery.js"></script>
+	<script src="<{$siteurl}>/ui/js/bootstrap.min.js"></script>
+    <script src="<{$siteurl}>/ui/js/ajaxfileupload.js"></script>
+	<script>
+		$("#submit").click(function(){
+			$.ajax({
+				url: "<{$siteurl}>/tags/adding",
+				type: 'POST',
+				dataType: 'json',
+				data: ({
+					name: $("[name=name]").val(),
+					des: $("[name=des]").val(),
+					image: $("[name=upimg1]").attr('value')
+				}),
+				success:function(result) {
+					if (result.flg == true) {
+						window.location.href="<{$siteurl}>/tags";
+					}
+				}
+			});
+		});
+	
+		function ajaxFileUpload()
+		{
+
+			$.ajaxFileUpload
+			(
+				{
+					url:'<{$siteurl}>/tags/img',
+					secureuri:false,
+					fileElementId:'fileToUpload',
+					dataType: 'json',
+					data:{name:'logan', id:'id'},
+					success: function (result, status)
+					{
+						if(result.flg == true)  {
+							$("[name=upimg]").attr('src', "<{$imgurl}>"+result.data);					
+							$("[name=upimg]").show();					
+							$("[name=upimg1]").attr('value', result.data);					
+						}
+//						if(typeof(data.error) != 'undefined')
+//						{
+//							if(data.error != '')
+//							{
+//								alert(data.error);
+//							}else
+//							{
+//								alert(data.msg);
+//							}
+//						}
+					},
+					error: function (data, status, e)
+					{
+						alert(e);
+					}
+				}
+			)
+			
+			return false;
+
+		}
+	</script>
+  </body>
+</html>
