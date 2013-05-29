@@ -1,6 +1,6 @@
 RewriteEngine on
 RewriteCond %{REQUEST_METHOD}^(TRACE|TRACK)
-RewriteRule .* -[F]
+RewriteRule .* - [F]
 php_flag magic_quotes_gpc Off
 
 RewriteRule ^user$ /index.php?m=user&a=index
