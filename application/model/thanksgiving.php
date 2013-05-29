@@ -182,7 +182,7 @@ class Thanksgiving extends Model
 			if (is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
 				$name = $_FILES['fileToUpload']['name'];
 				$name = preg_match("/\.\w{3,4}$/", $name, $matchs);
-				$imgname = $_COOKIE['userId'] . md5(time().mt_rand(0,10000));
+				$imgname = md5(time().mt_rand(0,10000));
 				$path = $path.$imgname.$matchs[0];
 				if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $path)) {
 					$res['flg'] = true;
