@@ -1,5 +1,7 @@
 RewriteEngine on
-RewriteBase /var/www/html/breakfate
+RewriteCond %{REQUEST_METHOD}^(TRACE|TRACK)
+RewriteRule .* -[F]
+php_flag magic_quotes_gpc Off
 
 RewriteRule ^user$ /index.php?m=user&a=index
 RewriteRule ^user/del/(\d*)$ /index.php?m=user&a=del&id=$1
